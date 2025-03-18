@@ -1,23 +1,53 @@
-/**
- * 
- */
+/// \file main.cpp
+///	\brief interface to the program
+///	\author Gabriele Triglia
+///
+///	Details.
+///
 
-#include <iostream>
+#include<iostream>
 #include "CRectangle.h"
+
 using namespace std;
 
-int main(int argc, char const *argv[])
-{
-    int altezza, base;
-    cout << "Inserisci la base del rettangolo: ";
-    cin >> base;
-    cout << "Inserisci l'altezza del rettangolo: ";
-    cin >> altezza;
-    cout << "PROGRAMMA RETTANGOLI TEST" << endl;
-    Rectangle r1 = Rectangle(base, altezza);
-    cout << "Area: " << r1.GetArea() << endl;
-    cout << "Perimetro: " << r1.GetPerimeter() << endl;
-    r1.Dump();
-    return 0;
-}
 
+int main() {
+
+	Rectangle rectA(10,5); 
+	//Rectangle rectB(3,7); 
+    rectA.SetText("Rettangolo1");
+    //rectB.SetText("Rettangolo2");
+    Rectangle rectB = rectA;
+	
+	cout << endl;
+	cout << "****** rectangle A dump ******" << endl;
+	rectA.Dump(); 
+	cout << "****** ********* ******" << endl;
+	
+	cout << endl;
+	cout << "****** rectangle B dump ******" << endl;
+	rectB.Dump(); 
+	cout << "****** ********* ******" << endl;
+	
+	rectA.SetWidth(9);
+	rectB.SetHeight(15);
+		
+	cout << endl;
+	cout << "****** rectangle A dump ******" << endl;
+	rectA.Dump();
+	cout << "****** ********* ******" << endl;
+	
+	cout << endl;
+	cout << "****** rectangle B dump ******" << endl;
+	rectB.Dump();
+	cout << "****** ********* ******" << endl;
+	
+	cout << "Perimeter A : " << rectA.GetPerimeter() << endl; 
+	cout << "Area A : " << rectA.GetArea() << endl; 
+	cout << "Perimeter B : " << rectB.GetPerimeter() << endl; 
+	cout << "Area B : " << rectB.GetArea() << endl;
+
+	//todo: funzione che faccia qualcosa con un rettangolo
+
+	return 0;
+}
