@@ -46,7 +46,7 @@ Rectangle::~Rectangle() {
 
 
 /// @brief copy constructor 
-/// @param o reference to the object that should be copied 
+/// @param r reference to the object that should be copied 
 Rectangle::Rectangle(const Rectangle &r) { 
 
 	cout << "Rectangle - copy constructor" << endl;
@@ -204,6 +204,10 @@ void Rectangle::Dump() {
 
 }
 
+/**
+ * @brief set text for the object
+ * @param string the text to be set
+ */
 void Rectangle::SetText(const char* string) {
 
 	int size = strlen(string);
@@ -212,6 +216,10 @@ void Rectangle::SetText(const char* string) {
 	
 }
 
+/**
+ * @brief returns a pointer the text of the object
+ * @return a pointer to the text of the object 
+ */
 void Rectangle::GetText(char* string) {
 	
 	memcpy(string,text,strlen(text));
