@@ -33,6 +33,12 @@ public:
 	~Rectangle();
 	/// @}
 	
+	/// @name OPERATORS
+	/// @{
+	Rectangle& operator=(const Rectangle &r); 
+	bool operator==(const Rectangle &r);
+	/// @}
+	
 	
 	/// @name BASIC HANDLING
 	/// @{

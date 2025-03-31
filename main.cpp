@@ -6,6 +6,7 @@
 ///
 
 #include <iostream>
+#include <cstring>
 #include "CRectangle.h"
 
 using namespace std;
@@ -56,44 +57,54 @@ void rect_draw(Rectangle r)
 int main()
 {
 
-	Rectangle rectA(10, 5);
-	// Rectangle rectB(3,7);
-	rectA.SetText("Rettangolo1");
-	// rectB.SetText("Rettangolo2");
-	Rectangle rectB = rectA;
+	Rectangle rectA(10,5);
+	Rectangle rectB(3,7);
+	Rectangle rectC;
+	
+	char msg1[1000];
+	int size = strlen("prova A");
+	memcpy(msg1,"prova A",size); 
+	msg1[size]='\0';
+
+	char msg2[1000];
+	size = strlen("prova B");
+	memcpy(msg2,"prova B",size); 
+	msg2[size]='\0';
+	
+	rectA.SetText(msg1);
+	rectB.SetText(msg2);
 
 	cout << endl;
-	cout << "****** rectangle A dump ******" << endl;
+	cout << "rectangle A" << endl;
 	rectA.Dump();
-	cout << "****** ********* ******" << endl;
 
-	cout << endl;
-	cout << "****** rectangle B dump ******" << endl;
+	cout << endl;	
+	cout << "rectangle B" << endl;
 	rectB.Dump();
-	cout << "****** ********* ******" << endl;
 
-	rectA.SetWidth(9);
-	rectB.SetHeight(15);
+	cout << endl;	
+	cout << "rectangle C" << endl;
+	rectC.Dump();
 
-	cout << endl;
-	cout << "****** rectangle A dump ******" << endl;
-	rectA.Dump();
-	cout << "****** ********* ******" << endl;
-
-	cout << endl;
-	cout << "****** rectangle B dump ******" << endl;
-	rectB.Dump();
-	cout << "****** ********* ******" << endl;
-
-	cout << "Perimeter A : " << rectA.GetPerimeter() << endl;
-	cout << "Area A : " << rectA.GetArea() << endl;
-	cout << "Perimeter B : " << rectB.GetPerimeter() << endl;
-	cout << "Area B : " << rectB.GetArea() << endl;
+			
+	rectC=rectA; 
+	
+	cout << endl;	
+	cout << "rectangle C" << endl;
+	rectC.Dump();
 
 	cout << "\t\t\tDRAW RECTANGLES\n" << endl;
 
 	rect_draw(rectA);
 	rect_draw(rectB);
+
+	if (rectA == rectC) 
+		cout<< "A e C sono uguali" << endl;
+	else 
+		cout<< "A e C sono diversi" << endl;
+		
+	
+	return 0;
 
 	return 0;
 }

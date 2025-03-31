@@ -4,7 +4,7 @@
 ///	Details.
 ///
 
-#include <iostream> 
+#include<iostream> 
 #include <cstring>
 #include "CRectangle.h" 
 using namespace std;
@@ -44,9 +44,34 @@ Rectangle::~Rectangle() {
 
 }
 
+/// @brief overload of operator = 
+/// @param o reference to the object on the right side of the operator 
+/// @return reference to the object on the left side of the operator 
+Rectangle& Rectangle::operator=(const Rectangle &r) { 
+
+	cout << "Rectangle - operator =" << endl;
+	
+	
+	Init(r);
+	
+	return *this;
+	
+}
+
+/// @brief overload of operator == 
+/// @param r reference to the object on the right side of the operator 
+/// @return true if the two objects have the same width and the same length  
+bool Rectangle::operator==(const Rectangle &r) { 
+
+	if (r.width == width && r.height == height)
+		return true;
+		
+	return false;
+}
+
 
 /// @brief copy constructor 
-/// @param r reference to the object that should be copied 
+/// @param o reference to the object that should be copied 
 Rectangle::Rectangle(const Rectangle &r) { 
 
 	cout << "Rectangle - copy constructor" << endl;
@@ -196,18 +221,14 @@ void Rectangle::Dump() {
 	
 	cout << "Width = " << width << endl;
 	cout << "Heigth = " << height << endl; 
-	cout << "Text = " << text << endl;
-	printf("Text ptr %x\n",text);
+	if (text != NULL)
+		cout << "Text = " << text << endl;
 	
 	
 	cout << endl;
 
 }
 
-/**
- * @brief set text for the object
- * @param string the text to be set
- */
 void Rectangle::SetText(const char* string) {
 
 	int size = strlen(string);
@@ -216,17 +237,8 @@ void Rectangle::SetText(const char* string) {
 	
 }
 
-/**
- * @brief returns a pointer the text of the object
- * @return a pointer to the text of the object 
- */
 void Rectangle::GetText(char* string) {
 	
 	memcpy(string,text,strlen(text));
 	
 }
-
-
-
-
-
